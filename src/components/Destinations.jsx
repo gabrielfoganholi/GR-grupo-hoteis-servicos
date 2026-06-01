@@ -32,6 +32,17 @@ const destinations = [
 ];
 
 export default function Destinations() {
+  function handleViewPackages() {
+    const section = document.getElementById("pacotes");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }
+
   return (
     <section className="destinations" id="destinos">
       <div className="container">
@@ -55,9 +66,13 @@ export default function Destinations() {
                   <p>{item.state}</p>
                 </div>
 
-                <a href="#pacotes" className="destination-button">
-  Ver Pacotes
-</a>
+                <button
+                  type="button"
+                  className="destination-button"
+                  onClick={handleViewPackages}
+                >
+                  Ver Pacotes
+                </button>
               </div>
             </article>
           ))}

@@ -16,7 +16,8 @@ export default function Schedule() {
     cidade: "",
     passageiros: "2",
     destino: destinoUrl,
-    data: "",
+    dataIda: "",
+    dataVolta: "",
     horario: "",
     observacoes: "",
   });
@@ -43,6 +44,11 @@ export default function Schedule() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    if (form.dataIda && form.dataVolta && form.dataVolta < form.dataIda) {
+      alert("A data de volta não pode ser anterior à data de ida.");
+      return;
+    }
+
     const mensagem = `
 Olá! Gostaria de solicitar um atendimento para viagem.
 
@@ -52,7 +58,8 @@ E-mail: ${form.email}
 Cidade: ${form.cidade}
 Destino de interesse: ${form.destino}
 Quantidade de passageiros: ${form.passageiros}
-Data desejada: ${form.data}
+Data de ida: ${form.dataIda}
+Data de volta: ${form.dataVolta}
 Horário preferido: ${form.horario || "Não informado"}
 
 Observações:
@@ -90,7 +97,7 @@ ${form.observacoes || "Sem observações."}
                 <div>
                   <h3>Você informa sua ideia de viagem</h3>
                   <p>
-                    Conte o destino, quantidade de pessoas e preferência de data.
+                    Conte o destino, quantidade de pessoas e período desejado.
                   </p>
                 </div>
               </div>
@@ -193,11 +200,22 @@ ${form.observacoes || "Sem observações."}
                 </div>
 
                 <div className="form-field">
-                  <label>Data desejada</label>
+                  <label>Data de ida</label>
                   <input
                     type="date"
-                    name="data"
-                    value={form.data}
+                    name="dataIda"
+                    value={form.dataIda}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="form-field">
+                  <label>Data de volta</label>
+                  <input
+                    type="date"
+                    name="dataVolta"
+                    value={form.dataVolta}
                     onChange={handleChange}
                     required
                   />

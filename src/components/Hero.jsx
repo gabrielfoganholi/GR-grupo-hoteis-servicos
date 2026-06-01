@@ -5,12 +5,19 @@ import { createWhatsAppLink, WHATSAPP_MESSAGES } from "../config";
 
 export default function Hero({ onSearch }) {
   const [destino, setDestino] = useState("");
-  const [data, setData] = useState("");
+  const [dataIda, setDataIda] = useState("");
+  const [dataVolta, setDataVolta] = useState("");
 
   function handleSearch() {
+    if (dataIda && dataVolta && dataVolta < dataIda) {
+      alert("A data de volta não pode ser anterior à data de ida.");
+      return;
+    }
+
     onSearch({
       destino,
-      data,
+      dataIda,
+      dataVolta,
     });
 
     setTimeout(() => {
@@ -72,12 +79,22 @@ export default function Hero({ onSearch }) {
             </div>
 
             <div className="search-field">
-              <label>Quando?</label>
+              <label>Data de ida</label>
 
               <input
                 type="date"
-                value={data}
-                onChange={(event) => setData(event.target.value)}
+                value={dataIda}
+                onChange={(event) => setDataIda(event.target.value)}
+              />
+            </div>
+
+            <div className="search-field">
+              <label>Data de volta</label>
+
+              <input
+                type="date"
+                value={dataVolta}
+                onChange={(event) => setDataVolta(event.target.value)}
               />
             </div>
 

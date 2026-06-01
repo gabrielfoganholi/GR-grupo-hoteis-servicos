@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { packages } from "../data/packages";
-import { COMPANY } from "../config";
+import { createWhatsAppLink } from "../config";
 
 function normalizeText(text) {
   return String(text)
@@ -10,23 +10,43 @@ function normalizeText(text) {
     .trim();
 }
 
-function isDateWithinRange(selectedDate, startDate, endDate) {
-  if (!selectedDate) return true;
+function isTripWithinPackageRange(dataIda, dataVolta, startDate, endDate) {
+  if (!dataIda && !dataVolta) return true;
   if (!startDate || !endDate) return false;
 
-  const selected = new Date(`${selectedDate}T00:00:00`);
   const start = new Date(`${startDate}T00:00:00`);
   const end = new Date(`${endDate}T23:59:59`);
 
-  return selected >= start && selected <= end;
+  if (dataIda && !dataVolta) {
+    const ida = new Date(`${dataIda}T00:00:00`);
+    return ida >= start && ida <= end;
+  }
+
+  if (!dataIda && dataVolta) {
+    const volta = new Date(`${dataVolta}T00:00:00`);
+    return volta >= start && volta <= end;
+  }
+
+  const ida = new Date(`${dataIda}T00:00:00`);
+  const volta = new Date(`${dataVolta}T23:59:59`);
+
+  return ida >= start && volta <= end;
 }
 
-function createWhatsappMessage(destino, data) {
+function createWhatsappMessage(destino, dataIda, dataVolta) {
   const message = `Olá! Procurei um pacote no site da GR${
     destino ? ` para ${destino}` : ""
-  }${data ? ` na data ${data}` : ""}, mas não encontrei disponibilidade. Gostaria de receber uma cotação personalizada.`;
+  }${
+    dataIda || dataVolta
+      ? ` no período de ${dataIda || "ida não informada"} até ${
+          dataVolta || "volta não informada"
+        }`
+      : ""
+  }, mas não encontrei disponibilidade.
 
-  return `${COMPANY.whatsappLink}?text=${encodeURIComponent(message)}`;
+Gostaria de receber uma cotação personalizada.`;
+
+  return createWhatsAppLink(message);
 }
 
 function PackageCard({ item }) {
@@ -68,7 +88,8 @@ function PackageCard({ item }) {
 
 export default function Packages({ searchFilters }) {
   const destino = searchFilters?.destino || "";
-  const data = searchFilters?.data || "";
+  const dataIda = searchFilters?.dataIda || "";
+  const dataVolta = searchFilters?.dataVolta || "";
 
   const normalizedDestino = normalizeText(destino);
 
@@ -86,11 +107,16 @@ export default function Packages({ searchFilters }) {
   });
 
   const filteredPackages = packagesByDestination.filter((item) =>
-    isDateWithinRange(data, item.dataInicio, item.dataFim)
+    isTripWithinPackageRange(
+      dataIda,
+      dataVolta,
+      item.dataInicio,
+      item.dataFim
+    )
   );
 
   const hasDestinationSearch = Boolean(normalizedDestino);
-  const hasDateSearch = Boolean(data);
+  const hasDateSearch = Boolean(dataIda || dataVolta);
   const hasSearch = hasDestinationSearch || hasDateSearch;
 
   const hasDestinationButWrongDate =
@@ -129,12 +155,12 @@ export default function Packages({ searchFilters }) {
 
         {hasDestinationButWrongDate && (
           <div className="no-packages">
-            <h3>Não temos pacote para essa data</h3>
+            <h3>Não temos pacote para esse período</h3>
 
             <p>
-              Encontramos pacote para esse destino, mas não na data selecionada.
-              Veja abaixo as datas disponíveis ou solicite uma nova cotação pelo
-              WhatsApp.
+              Encontramos pacote para esse destino, mas não no período
+              selecionado. Veja abaixo as datas disponíveis ou solicite uma nova
+              cotação pelo WhatsApp.
             </p>
 
             <div className="packages-grid alternative-packages">
@@ -144,13 +170,11 @@ export default function Packages({ searchFilters }) {
             </div>
 
             <a
-              href={createWhatsappMessage(destino, data)}
+              href={createWhatsappMessage(destino, dataIda, dataVolta)}
               target="_blank"
               rel="noreferrer"
             >
-              <button className="btn-primary">
-                Solicitar Nova Cotação
-              </button>
+              <button className="btn-primary">Solicitar Nova Cotação</button>
             </a>
           </div>
         )}
@@ -165,7 +189,7 @@ export default function Packages({ searchFilters }) {
             </p>
 
             <a
-              href={createWhatsappMessage(destino, data)}
+              href={createWhatsappMessage(destino, dataIda, dataVolta)}
               target="_blank"
               rel="noreferrer"
             >
@@ -178,15 +202,15 @@ export default function Packages({ searchFilters }) {
 
         {onlyDateWithoutResult && (
           <div className="no-packages">
-            <h3>Nenhum pacote encontrado nessa data</h3>
+            <h3>Nenhum pacote encontrado nesse período</h3>
 
             <p>
-              Não encontramos pacotes disponíveis para a data selecionada. Fale
-              com a equipe da GR para encontrar outras opções.
+              Não encontramos pacotes disponíveis para o período selecionado.
+              Fale com a equipe da GR para encontrar outras opções.
             </p>
 
             <a
-              href={createWhatsappMessage(destino, data)}
+              href={createWhatsappMessage(destino, dataIda, dataVolta)}
               target="_blank"
               rel="noreferrer"
             >

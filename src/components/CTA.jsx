@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { COMPANY } from "../config";
+import { createWhatsAppLink, WHATSAPP_MESSAGES } from "../config";
 
 export default function CTA() {
   return (
@@ -8,9 +8,7 @@ export default function CTA() {
         <div>
           <span>Vamos viajar?</span>
 
-          <h2>
-            Pronto para planejar sua próxima experiência?
-          </h2>
+          <h2>Pronto para planejar sua próxima experiência?</h2>
 
           <p>
             Fale com a equipe da GR e encontre o pacote ideal para sua próxima
@@ -26,7 +24,7 @@ export default function CTA() {
           </Link>
 
           <a
-            href={COMPANY.whatsappLink}
+            href={createWhatsAppLink(WHATSAPP_MESSAGES.general)}
             target="_blank"
             rel="noreferrer"
           >

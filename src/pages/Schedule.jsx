@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Header from "../components/Header";
 import WhatsAppFloat from "../components/WhatsAppFloat";
-import { COMPANY } from "../config";
+import { createWhatsAppLink } from "../config";
 
 export default function Schedule() {
   const [searchParams] = useSearchParams();
@@ -21,7 +21,15 @@ export default function Schedule() {
     observacoes: "",
   });
 
-  const horarios = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"];
+  const horarios = [
+    "09:00",
+    "10:00",
+    "11:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+  ];
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -45,17 +53,13 @@ Cidade: ${form.cidade}
 Destino de interesse: ${form.destino}
 Quantidade de passageiros: ${form.passageiros}
 Data desejada: ${form.data}
-Horário preferido: ${form.horario}
+Horário preferido: ${form.horario || "Não informado"}
 
 Observações:
 ${form.observacoes || "Sem observações."}
 `;
 
-    const whatsapp = `${COMPANY.whatsappLink}?text=${encodeURIComponent(
-  mensagem
-)}`;
-
-    window.open(whatsapp, "_blank");
+    window.open(createWhatsAppLink(mensagem), "_blank");
   }
 
   return (
@@ -239,7 +243,7 @@ ${form.observacoes || "Sem observações."}
           </div>
         </section>
       </main>
-      
+
       <WhatsAppFloat />
     </>
   );

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { COMPANY } from "../config";
+import { COMPANY, createWhatsAppLink, WHATSAPP_MESSAGES } from "../config";
 import { scrollToSection } from "../utils/navigation";
 
 export default function Footer() {
@@ -61,7 +61,11 @@ export default function Footer() {
         <div>
           <h4>Contato</h4>
 
-          <a href={COMPANY.whatsappLink} target="_blank" rel="noreferrer">
+          <a
+            href={createWhatsAppLink(WHATSAPP_MESSAGES.general)}
+            target="_blank"
+            rel="noreferrer"
+          >
             WhatsApp
           </a>
 

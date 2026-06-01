@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import hero from "../assets/hero.png";
-import { COMPANY } from "../config";
+import { createWhatsAppLink, WHATSAPP_MESSAGES } from "../config";
 
 export default function Hero({ onSearch }) {
   const [destino, setDestino] = useState("");
@@ -50,7 +50,11 @@ export default function Hero({ onSearch }) {
               <button className="btn-primary">Planejar Minha Viagem</button>
             </Link>
 
-            <a href={COMPANY.whatsappLink} target="_blank" rel="noreferrer">
+            <a
+              href={createWhatsAppLink(WHATSAPP_MESSAGES.general)}
+              target="_blank"
+              rel="noreferrer"
+            >
               <button className="btn-outline-light">WhatsApp</button>
             </a>
           </div>

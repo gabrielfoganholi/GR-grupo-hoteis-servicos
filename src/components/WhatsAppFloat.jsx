@@ -7,11 +7,16 @@ export default function WhatsAppFloat() {
       target="_blank"
       rel="noreferrer"
       className="whatsapp-float"
+      aria-label="Falar com Reinaldo no WhatsApp"
     >
-      <div className="whatsapp-icon">💬</div>
+      <div className="whatsapp-pulse"></div>
+
+      <div className="whatsapp-icon">
+        💬
+      </div>
 
       <div className="whatsapp-text">
-        <span>Fale com o Reinaldo</span>
+        <strong>Fale com o Reinaldo</strong>
       </div>
     </a>
   );

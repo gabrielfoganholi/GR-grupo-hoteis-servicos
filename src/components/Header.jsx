@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { COMPANY } from "../config";
+import { createWhatsAppLink, WHATSAPP_MESSAGES } from "../config";
 import logo from "../assets/logo.png";
 
 export default function Header() {
@@ -40,14 +40,29 @@ export default function Header() {
 
         <nav className={menuOpen ? "menu-area active" : "menu-area"}>
           <ul className="menu">
-            <li><button onClick={() => goToSection("destinos")}>Destinos</button></li>
-            <li><button onClick={() => goToSection("pacotes")}>Pacotes</button></li>
-            <li><button onClick={() => goToSection("sobre")}>Sobre Nós</button></li>
-            <li><button onClick={() => goToSection("contato")}>Contato</button></li>
+            <li>
+              <button onClick={() => goToSection("destinos")}>Destinos</button>
+            </li>
+
+            <li>
+              <button onClick={() => goToSection("pacotes")}>Pacotes</button>
+            </li>
+
+            <li>
+              <button onClick={() => goToSection("sobre")}>Sobre Nós</button>
+            </li>
+
+            <li>
+              <button onClick={() => goToSection("contato")}>Contato</button>
+            </li>
           </ul>
 
           <div className="mobile-menu-actions">
-            <a href={COMPANY.whatsappLink} target="_blank" rel="noreferrer">
+            <a
+              href={createWhatsAppLink(WHATSAPP_MESSAGES.general)}
+              target="_blank"
+              rel="noreferrer"
+            >
               <button className="btn-outline">WhatsApp</button>
             </a>
 
@@ -58,7 +73,11 @@ export default function Header() {
         </nav>
 
         <div className="actions desktop-actions">
-          <a href={COMPANY.whatsappLink} target="_blank" rel="noreferrer">
+          <a
+            href={createWhatsAppLink(WHATSAPP_MESSAGES.general)}
+            target="_blank"
+            rel="noreferrer"
+          >
             <button className="btn-outline">WhatsApp</button>
           </a>
 

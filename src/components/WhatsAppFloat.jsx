@@ -1,19 +1,17 @@
-import { COMPANY } from "../config";
+import { createWhatsAppLink, WHATSAPP_MESSAGES } from "../config";
 
 export default function WhatsAppFloat() {
   return (
     <a
-      href={COMPANY.whatsappLink}
+      href={createWhatsAppLink(WHATSAPP_MESSAGES.general)}
       target="_blank"
       rel="noreferrer"
       className="whatsapp-float"
     >
-      <div className="whatsapp-icon">
-        💬
-      </div>
+      <div className="whatsapp-icon">💬</div>
 
       <div className="whatsapp-text">
-        <span>Fale com um consultor</span>
+        <span>Fale com o Reinaldo</span>
       </div>
     </a>
   );

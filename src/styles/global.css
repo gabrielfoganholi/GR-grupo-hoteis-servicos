@@ -1742,3 +1742,54 @@ img{max-width:100%;display:block}
   background:#FF7A00;
   color:white;
 }
+
+.no-packages{
+  margin-top:40px;
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 16px 35px rgba(9,26,50,.08);
+}
+
+.no-packages h3{
+  font-family:'Montserrat',sans-serif;
+  color:#091A32;
+  font-size:1.8rem;
+  margin-bottom:12px;
+}
+
+.no-packages p{
+  max-width:620px;
+  margin:0 auto 24px;
+  color:#667085;
+  line-height:1.7;
+}
+
+.alternative-packages{
+  margin-top:28px;
+  text-align:left;
+}
+
+.footer-link{
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.footer-link{
+  display:block;
+  background:none;
+  border:none;
+  color:rgba(255,255,255,.72);
+  margin-bottom:12px;
+  padding:0;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.footer-link:hover{
+  color:#FF7A00;
+}

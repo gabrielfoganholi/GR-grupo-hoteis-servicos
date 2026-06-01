@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Destinations from "../components/Destinations";
@@ -9,12 +11,17 @@ import Footer from "../components/Footer";
 import WhatsAppFloat from "../components/WhatsAppFloat";
 
 export default function Home() {
+  const [searchFilters, setSearchFilters] = useState({
+    destino: "",
+    data: "",
+  });
+
   return (
     <>
       <Header />
-      <Hero />
+      <Hero onSearch={setSearchFilters} />
       <Destinations />
-      <Packages />
+      <Packages searchFilters={searchFilters} />
       <About />
       <Testimonials />
       <CTA />

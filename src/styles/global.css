@@ -1644,3 +1644,93 @@ img{max-width:100%;display:block}
     font-size:2.85rem;
   }
 }
+
+/* FIX MOBILE HEADER + HERO */
+
+@media(max-width:900px){
+  .header{
+    background:rgba(9,26,50,.92);
+  }
+
+  .nav{
+    height:76px;
+  }
+
+  .hamburger{
+    align-items:center;
+    justify-content:center;
+    padding:0;
+  }
+
+  .hamburger span{
+    display:block;
+    margin:0 auto;
+  }
+
+  .logo{
+    gap:10px;
+  }
+
+  .logo-box{
+    width:42px;
+    height:42px;
+    padding:5px;
+  }
+
+  .logo-name{
+    font-size:.8rem;
+    max-width:180px;
+    line-height:1.15;
+  }
+
+  .hero{
+    margin-top:76px;
+  }
+
+  .hero-content{
+    padding:52px 0 32px;
+  }
+
+  .hero-content h1{
+    font-size:2.7rem;
+    line-height:1.08;
+  }
+
+  .hero-content p{
+    font-size:1rem;
+    line-height:1.65;
+  }
+
+  .badge{
+    font-size:.85rem;
+    padding:8px 16px;
+  }
+
+  .hero-buttons{
+    margin-top:28px;
+  }
+
+  .search-box{
+    margin-top:30px;
+  }
+}
+
+@media(max-width:480px){
+  .container,
+  .hero-content{
+    width:90%;
+  }
+
+  .hero-content h1{
+    font-size:2.55rem;
+  }
+
+  .hamburger{
+    width:48px;
+    height:48px;
+  }
+
+  .hamburger span{
+    width:22px;
+  }
+}

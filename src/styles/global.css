@@ -1476,3 +1476,171 @@ img{max-width:100%;display:block}
     font-size:.8rem;
   }
 }
+
+/* MOBILE HEADER FIX */
+
+.mobile-menu-actions,
+.hamburger{
+  display:none;
+}
+
+@media(max-width:900px){
+  .nav{
+    height:76px;
+  }
+
+  .logo-box{
+    width:46px;
+    height:46px;
+    border-radius:12px;
+  }
+
+  .logo-name{
+    font-size:.88rem;
+    max-width:190px;
+    line-height:1.2;
+    white-space:normal;
+  }
+
+  .desktop-actions{
+    display:none;
+  }
+
+  .hamburger{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+
+    width:44px;
+    height:44px;
+
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:12px;
+  }
+
+  .hamburger span{
+    width:20px;
+    height:2px;
+    background:white;
+    border-radius:999px;
+    transition:.3s;
+  }
+
+  .hamburger.active span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2){
+    opacity:0;
+  }
+
+  .hamburger.active span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+  }
+
+  .menu-area{
+    position:fixed;
+    top:76px;
+    left:0;
+    width:100%;
+
+    background:#091A32;
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding:24px;
+
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(-10px);
+    transition:.3s;
+  }
+
+  .menu-area.active{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+  }
+
+  .menu{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+  }
+
+  .menu button{
+    font-size:1.05rem;
+  }
+
+  .mobile-menu-actions{
+    display:grid;
+    gap:12px;
+    margin-top:24px;
+  }
+
+  .mobile-menu-actions a,
+  .mobile-menu-actions button{
+    width:100%;
+  }
+
+  .hero{
+    margin-top:76px;
+    min-height:auto;
+  }
+
+  .overlay{
+    min-height:auto;
+  }
+
+  .hero-content{
+    padding:70px 0 40px;
+  }
+
+  .hero-content h1{
+    font-size:clamp(2.4rem,12vw,4rem);
+    line-height:1.08;
+  }
+
+  .hero-content p{
+    font-size:1rem;
+    line-height:1.7;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:stretch;
+    max-width:310px;
+  }
+
+  .hero-buttons a,
+  .hero-buttons button{
+    width:100%;
+  }
+
+  .search-box{
+    margin-top:32px;
+  }
+
+  .whatsapp-float{
+    bottom:18px;
+  }
+}
+
+@media(max-width:480px){
+  .logo-box{
+    width:42px;
+    height:42px;
+    padding:5px;
+  }
+
+  .logo-name{
+    font-size:.78rem;
+    max-width:165px;
+  }
+
+  .hero-content h1{
+    font-size:2.85rem;
+  }
+}

@@ -1,0 +1,66 @@
+const destinations = [
+  {
+    name: "Porto Seguro",
+    state: "Bahia",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Arraial d'Ajuda",
+    state: "Bahia",
+    image:
+      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Natal",
+    state: "Rio Grande do Norte",
+    image:
+      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "João Pessoa",
+    state: "Paraíba",
+    image:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Maceió",
+    state: "Alagoas",
+    image:
+      "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=80",
+  },
+];
+
+export default function Destinations() {
+  return (
+    <section className="destinations" id="destinos">
+      <div className="container">
+        <div className="section-heading">
+          <span>Explore o Brasil</span>
+          <h2>Destinos em Destaque</h2>
+          <p>
+            Selecionamos destinos incríveis para quem busca conforto, lazer e
+            experiências inesquecíveis.
+          </p>
+        </div>
+
+        <div className="destinations-grid">
+          {destinations.map((item) => (
+            <article className="destination-card" key={item.name}>
+              <img src={item.image} alt={item.name} />
+
+              <div className="destination-overlay">
+                <div>
+                  <h3>{item.name}</h3>
+                  <p>{item.state}</p>
+                </div>
+
+                <button>Ver Pacotes</button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

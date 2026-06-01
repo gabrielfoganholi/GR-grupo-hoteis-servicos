@@ -55,7 +55,9 @@ export default function Destinations() {
                   <p>{item.state}</p>
                 </div>
 
-                <button>Ver Pacotes</button>
+                <a href="#pacotes" className="destination-button">
+  Ver Pacotes
+</a>
               </div>
             </article>
           ))}

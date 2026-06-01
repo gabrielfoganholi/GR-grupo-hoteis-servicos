@@ -13,15 +13,29 @@ import WhatsAppFloat from "../components/WhatsAppFloat";
 export default function Home() {
   const [searchFilters, setSearchFilters] = useState({
     destino: "",
-    data: "",
+    dataIda: "",
+    dataVolta: "",
   });
+
+  function clearSearch() {
+    setSearchFilters({
+      destino: "",
+      dataIda: "",
+      dataVolta: "",
+    });
+  }
 
   return (
     <>
       <Header />
       <Hero onSearch={setSearchFilters} />
       <Destinations />
-      <Packages searchFilters={searchFilters} />
+
+      <Packages
+        searchFilters={searchFilters}
+        onClearSearch={clearSearch}
+      />
+
       <About />
       <Testimonials />
       <CTA />

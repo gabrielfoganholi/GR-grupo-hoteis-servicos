@@ -1826,3 +1826,19 @@ img{max-width:100%;display:block}
 .footer-link:hover{
   color:#FF7A00;
 }
+
+.clear-search-btn{
+  margin-top:18px;
+  background:#091A32;
+  color:white;
+  border:none;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:800;
+  transition:.3s;
+}
+
+.clear-search-btn:hover{
+  background:#FF7A00;
+  transform:translateY(-2px);
+}

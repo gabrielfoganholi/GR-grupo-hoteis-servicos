@@ -86,7 +86,7 @@ function PackageCard({ item }) {
   );
 }
 
-export default function Packages({ searchFilters }) {
+export default function Packages({ searchFilters, onClearSearch }) {
   const destino = searchFilters?.destino || "";
   const dataIda = searchFilters?.dataIda || "";
   const dataVolta = searchFilters?.dataVolta || "";
@@ -143,6 +143,16 @@ export default function Packages({ searchFilters }) {
             Aproveite pacotes selecionados com hotéis, datas especiais e
             facilidade de pagamento.
           </p>
+
+          {hasSearch && (
+            <button
+              type="button"
+              className="clear-search-btn"
+              onClick={onClearSearch}
+            >
+              Limpar busca e ver todos os pacotes
+            </button>
+          )}
         </div>
 
         {filteredPackages.length > 0 && (

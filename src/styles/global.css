@@ -1902,3 +1902,59 @@ img{max-width:100%;display:block}
     max-width:980px;
   }
 }
+
+/* BACKGROUND PADRÃO GR */
+
+.about,
+.schedule-section,
+.footer{
+  position:relative;
+  overflow:hidden;
+}
+
+.about::before,
+.schedule-section::before,
+.footer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("/pattern-gr.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  opacity:.06;
+  pointer-events:none;
+  z-index:0;
+}
+
+.about > *,
+.schedule-section > *,
+.footer > *{
+  position:relative;
+  z-index:1;
+}
+
+/* Agendamento com fundo mais elegante */
+.schedule-section{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(248,250,252,.96),
+      rgba(255,255,255,.98)
+    );
+}
+
+/* Footer mantém escuro, com pattern quase invisível */
+.footer::before{
+  opacity:.04;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .about::before,
+  .schedule-section::before,
+  .footer::before{
+    opacity:.04;
+    background-size:cover;
+  }
+}

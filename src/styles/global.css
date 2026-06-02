@@ -1863,3 +1863,42 @@ img{max-width:100%;display:block}
 .full{
   width:100%;
 }
+
+/* HERO DESKTOP FIX */
+
+@media(min-width:1024px){
+  .hero-content{
+    width:90%;
+    max-width:1180px;
+    margin:0 auto;
+    padding-top:70px;
+  }
+
+  .hero-content h1{
+    max-width:760px;
+    font-size:clamp(3.4rem, 4.2vw, 5.2rem);
+    line-height:1.06;
+    letter-spacing:-.04em;
+  }
+
+  .hero-content p{
+    max-width:620px;
+  }
+
+  .search-box{
+    width:100%;
+    max-width:900px;
+    grid-template-columns:1.3fr 1fr 1fr auto;
+  }
+}
+
+@media(min-width:1500px){
+  .hero-content h1{
+    font-size:4.8rem;
+    max-width:820px;
+  }
+
+  .search-box{
+    max-width:980px;
+  }
+}

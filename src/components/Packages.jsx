@@ -54,6 +54,7 @@ function PackageCard({ item }) {
     <article className="package-card">
       <div className="package-image">
         <img src={item.imagem} alt={item.destino} />
+
         <span className="installments">{item.parcelas}</span>
         <span className="vacancies">Últimas {item.vagas} vagas</span>
       </div>
@@ -61,6 +62,7 @@ function PackageCard({ item }) {
       <div className="package-content">
         <div>
           <h3>{item.hotel}</h3>
+
           <p className="package-location">
             {item.destino} • {item.local}
           </p>

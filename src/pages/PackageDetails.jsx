@@ -17,14 +17,10 @@ export default function PackageDetails() {
         <main className="package-not-found">
           <h1>Pacote não encontrado</h1>
 
-          <p>
-            O pacote que você tentou acessar não está disponível.
-          </p>
+          <p>O pacote que você tentou acessar não está disponível.</p>
 
           <Link to="/">
-            <button className="btn-primary">
-              Voltar para a Home
-            </button>
+            <button className="btn-primary">Voltar para a Home</button>
           </Link>
         </main>
 
@@ -44,6 +40,8 @@ Valor: ${packageItem.valor}
 Pode me enviar mais informações?`
   );
 
+  const galeria = packageItem.imagens || [packageItem.imagem];
+
   return (
     <>
       <Header />
@@ -57,9 +55,7 @@ Pode me enviar mais informações?`
         >
           <div className="package-hero-overlay">
             <div className="container">
-              <span className="badge">
-                Pacote Exclusivo
-              </span>
+              <span className="badge">Pacote Exclusivo</span>
 
               <h1>{packageItem.destino}</h1>
 
@@ -72,31 +68,21 @@ Pode me enviar mais informações?`
 
         <section className="package-main">
           <div className="container package-layout">
-
             <div className="package-left">
-
               <div className="package-gallery">
-                <img
-                  src={packageItem.imagem}
-                  alt={packageItem.destino}
-                />
-
-                <img
-                  src={packageItem.imagem}
-                  alt={packageItem.hotel}
-                />
-
-                <img
-                  src={packageItem.imagem}
-                  alt={packageItem.local}
-                />
+                {galeria.map((imagem, index) => (
+                  <img
+                    key={index}
+                    src={imagem}
+                    alt={`${packageItem.destino} ${index + 1}`}
+                  />
+                ))}
               </div>
 
               <div className="package-box">
                 <h2>Informações do Pacote</h2>
 
                 <div className="info-grid">
-
                   <div>
                     <span>Destino</span>
                     <strong>{packageItem.destino}</strong>
@@ -124,11 +110,8 @@ Pode me enviar mais informações?`
 
                   <div>
                     <span>Disponibilidade</span>
-                    <strong>
-                      Últimas {packageItem.vagas} vagas
-                    </strong>
+                    <strong>Últimas {packageItem.vagas} vagas</strong>
                   </div>
-
                 </div>
               </div>
 
@@ -152,26 +135,19 @@ Pode me enviar mais informações?`
                   <li>Taxas extras não informadas no pacote</li>
                 </ul>
               </div>
-
             </div>
 
             <aside className="package-sidebar">
-
               <div className="price-card">
-
                 <span className="urgency">
                   Últimas {packageItem.vagas} vagas
                 </span>
 
                 <small>A partir de</small>
 
-                <strong>
-                  {packageItem.valor}
-                </strong>
+                <strong>{packageItem.valor}</strong>
 
-                <p>
-                  {packageItem.parcelas}
-                </p>
+                <p>{packageItem.parcelas}</p>
 
                 <a
                   href={`https://wa.me/${COMPANY.whatsapp}?text=${whatsappMessage}`}
@@ -193,10 +169,17 @@ Pode me enviar mais informações?`
                   </button>
                 </Link>
 
+                <a
+                  href={packageItem.catalogo}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <button className="btn-outline-catalog full">
+                    📄 Baixar Catálogo Completo
+                  </button>
+                </a>
               </div>
-
             </aside>
-
           </div>
         </section>
       </main>

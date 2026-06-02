@@ -2,32 +2,27 @@ const destinations = [
   {
     name: "Porto Seguro",
     state: "Bahia",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+    image: "/images/porto-seguro/1.jpg",
   },
   {
     name: "Arraial d'Ajuda",
     state: "Bahia",
-    image:
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80",
+    image: "/images/arraial/1.jpg",
   },
   {
     name: "Natal",
     state: "Rio Grande do Norte",
-    image:
-      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80",
+    image: "/images/natal/1.jpg",
   },
   {
     name: "João Pessoa",
     state: "Paraíba",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+    image: "/images/joao-pessoa/1.jpg",
   },
   {
     name: "Maceió",
     state: "Alagoas",
-    image:
-      "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=80",
+    image: "/images/maceio/1.jpg",
   },
 ];
 

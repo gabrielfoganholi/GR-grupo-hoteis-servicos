@@ -12,8 +12,16 @@ export const packages = [
     valor: "R$ 2.388,00",
     parcelas: "12x R$ 199,00",
     vagas: 8,
-    imagem:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+
+    catalogo: "/catalogos/porto-seguro-julho.pdf",
+
+    imagem: "/images/porto-seguro/1.jpg",
+
+    imagens: [
+      "/images/porto-seguro/1.jpg",
+      "/images/porto-seguro/2.jpg",
+      "/images/porto-seguro/3.jpg",
+    ],
   },
 
   {
@@ -29,8 +37,16 @@ export const packages = [
     valor: "R$ 2.500,00",
     parcelas: "10x R$ 250,00",
     vagas: 4,
-    imagem:
-      "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=80",
+
+    catalogo: "/catalogos/maceio-ferias.pdf",
+
+    imagem: "/images/maceio/1.jpg",
+
+    imagens: [
+      "/images/maceio/1.jpg",
+      "/images/maceio/2.jpg",
+      "/images/maceio/3.jpg",
+    ],
   },
 
   {
@@ -46,8 +62,16 @@ export const packages = [
     valor: "R$ 1.740,00",
     parcelas: "12x R$ 145,00",
     vagas: 6,
-    imagem:
-      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80",
+
+    catalogo: "/catalogos/natal-verao.pdf",
+
+    imagem: "/images/natal/1.jpg",
+
+    imagens: [
+      "/images/natal/1.jpg",
+      "/images/natal/2.jpg",
+      "/images/natal/3.jpg",
+    ],
   },
 
   {
@@ -63,8 +87,16 @@ export const packages = [
     valor: "R$ 2.190,00",
     parcelas: "12x R$ 182,50",
     vagas: 5,
-    imagem:
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80",
+
+    catalogo: "/catalogos/arraial-ajuda-premium.pdf",
+
+    imagem: "/images/arraial/1.jpg",
+
+    imagens: [
+      "/images/arraial/1.jpg",
+      "/images/arraial/2.jpg",
+      "/images/arraial/3.jpg",
+    ],
   },
 
   {
@@ -80,7 +112,15 @@ export const packages = [
     valor: "R$ 2.090,00",
     parcelas: "12x R$ 174,16",
     vagas: 7,
-    imagem:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+
+    catalogo: "/catalogos/joao-pessoa-paraiso.pdf",
+
+    imagem: "/images/joao-pessoa/1.jpg",
+
+    imagens: [
+      "/images/joao-pessoa/1.jpg",
+      "/images/joao-pessoa/2.jpg",
+      "/images/joao-pessoa/3.jpg",
+    ],
   },
 ];

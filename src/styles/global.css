@@ -1842,3 +1842,24 @@ img{max-width:100%;display:block}
   background:#FF7A00;
   transform:translateY(-2px);
 }
+
+.btn-outline-catalog{
+  background:#fff;
+  color:#091A32;
+  border:2px solid #091A32;
+  padding:14px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn-outline-catalog:hover{
+  background:#091A32;
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+.full{
+  width:100%;
+}
